@@ -1,0 +1,43 @@
+// ==========================================================================
+// helpers.scss
+//
+// This is used for Global css classes that are used throughout the project.
+// ==========================================================================
+
+
+/** Used to add a consistent gutter between sections of a page. **/
+.spacer {
+
+    /* Box Model */
+    @include spacing(margin, vertical);
+}
+
+/** Minus margins push inner items out to align with parent containers when required. **/
+.push-row {
+
+  /* Dependancies */
+  @extend .row;
+
+  /* Box Model */
+  margin-left: -$spacing;
+  margin-right: -$spacing;
+}
+
+/** Use flexbox to vertically center align child elements **/
+.vertical-center {
+
+  /* Box Model */
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/** Use flexbox to center align child elements on both x and y axis. **/
+.absolute-center {
+
+  /* Box Model */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

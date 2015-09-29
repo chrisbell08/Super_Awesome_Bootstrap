@@ -1,0 +1,45 @@
+.btn {
+
+  /* Elements */
+  @include element(default) {
+
+    /* Dependencies */
+    @extend .btn;
+    @extend .btn-default;
+  }
+
+  @include element(primary) {
+
+    /* Dependencies */
+    @extend .btn;
+    @extend .btn-primary;
+  }
+
+  @include element(info) {
+
+    /* Dependencies */
+    @extend .btn;
+    @extend .btn-info;
+  }
+
+  @include element(danger) {
+
+    /* Dependencies */
+    @extend .btn;
+    @extend .btn-danger;
+  }
+
+  @include element(success) {
+
+    /* Dependencies */
+    @extend .btn;
+    @extend .btn-success;
+  }
+
+  @include element(link) {
+
+    /* Dependencies */
+    @extend .btn;
+    @extend .btn-link;
+  }
+}

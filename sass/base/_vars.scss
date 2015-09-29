@@ -1,0 +1,21 @@
+/*************************************************************************
+**
+** vars.scss
+**
+** Any global variables used in the site in addition to the Front-End
+** framework variables.
+**
+**************************************************************************/
+
+/*****************
+*
+* Settings
+* (Not in bootstrap)
+*
+******************/
+
+$spacing: 15px; // Global spacing used throughout the site.
+$site-max-width: 1800px; // Set a max width of fluid containers, useful for full screen images.
+$site-min-width: 300px; // Set the min width of the site to prevent it squashing too small.
+
+

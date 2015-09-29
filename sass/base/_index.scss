@@ -1,0 +1,31 @@
+// Base Rules
+//
+// The base syling the project is built on. This folder contains the styling
+// for the base HTML elements, the css reset, the colors used in the project
+// and the variables for our front-end framework. We also define any custom
+// variables for use in the project.
+
+// ==========================================================================
+// CSS Reset
+// ==========================================================================
+@import 'normalize';
+
+// ==========================================================================
+// Colors converted from hex to variable names
+// ==========================================================================
+@import 'colors';
+
+// ==========================================================================
+// The Bootstrap Variables
+// ==========================================================================
+@import 'bootstrap';
+
+// ==========================================================================
+// The Custom Site
+// ==========================================================================
+@import 'vars';
+
+// ==========================================================================
+// HTML element base styling
+// ==========================================================================
+@import 'base';

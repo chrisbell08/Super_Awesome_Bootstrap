@@ -1,0 +1,184 @@
+// ==========================================================================
+// mixins.scss
+//
+// Place all your mixins here.
+// ==========================================================================
+
+
+/*
+* Media queries
+*
+* This uses the Bootstrap media queries
+* as the base but also allow you to
+* pass in custom values as either min
+* or max width breakpoints.
+*/
+
+@mixin screen($screen, $value1: 0, $value2:0 ) {
+  @if $screen == "xs"{
+    @media (max-width: $screen-xs-max) {
+      @content;
+    }
+  }
+  @elseif $screen == "sm" {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      @content;
+    }
+  }
+  @else if $screen == "md" {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      @content;
+    }
+  }
+  @else if $screen == "lg" {
+    @media (min-width: $screen-lg-min) {
+      @content;
+    }
+  }
+
+  @else if ($screen == "min") {
+    @media (min-width: $value1) {
+      @content;
+    }
+  }
+
+  @else if ($screen == "max") {
+    @media (max-width: $value1) {
+      @content;
+    }
+  }
+
+  @else if ($screen == "range") {
+    @media (min-width: $value1) and (max-width: $value2) {
+      @content;
+    }
+  }
+
+  @else {
+    @error "Whoops!`#{$screen}` is not a valid value. "
+  }
+}
+
+
+/*
+* BEM selectors
+*
+* When using BEM https://en.bem.info/method/
+* for your css these mixins help create the
+* BEM classes.
+*/
+
+@mixin element($element) {
+	&__#{$element} {
+    @content;
+  }
+}
+@mixin modifier($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+
+/*
+* Element Spacing
+*
+* Used to add spacing to the grid. The
+* $spacing value is set in the base/vars.scss
+* file. The position of the spacing (margin or padding)
+* can be passed in along with the direction and a multiplier.
+* The multiplier is optional and defaults to 1.
+*/
+
+@mixin spacing($position, $direction, $multiplier: 1) {
+
+  @if ($position == "margin") or ($position == "padding") {
+
+    @if $direction == "all" {
+      #{$position}: ( $spacing * $multiplier );
+    }
+
+    @elseif $direction == "vertical" {
+      #{$position}-top: ( $spacing * $multiplier );
+      #{$position}-bottom: ( $spacing * $multiplier );
+    }
+
+    @elseif $direction == "sides" {
+      #{$position}-left:  ( $spacing * $multiplier );
+      #{$position}-right:  ( $spacing * $multiplier );
+    }
+
+    @elseif $direction == "left" {
+      #{$position}-left:  ( $spacing * $multiplier );
+    }
+
+    @elseif $direction == "right" {
+      #{$position}-right:  ( $spacing * $multiplier );
+    }
+
+    @elseif $direction == "top" {
+      #{$position}-top:  ( $spacing * $multiplier );
+    }
+
+    @elseif $direction == "bottom" {
+      #{$position}-bottom:  ( $spacing * $multiplier );
+    }
+
+    @else {
+      @error "Whoops! No value could be retrieved for `#{$direction}`. "
+    }
+
+  }
+
+  @else {
+    @error "Whoops! `#{$position}` is not a valid value. "
+  }
+}
+
+/*
+* Shorthand Cols
+*
+* When using bootstraps grid use the
+* shorthand @include cols(xs, sm, md, lg)
+* to declare the width of the element.
+* Only the required number of media queries
+* is needed to be called.
+*
+* For example:
+* @extend .col-xs-12;
+* @extend .col-sm-6;
+*
+* Can be shorthanded to:
+* @include cols(12, 6);
+*
+*/
+
+@mixin cols($xs, $sm: 0, $md: 0, $lg: 0 ) {
+
+    @extend .col-xs-#{$xs};
+
+    @if ($sm != 0) {
+      @extend .col-sm-#{$sm};
+    }
+
+    @if ($md != 0) {
+      @extend .col-md-#{$md};
+    }
+
+    @if ($lg != 0) {
+      @extend .col-lg-#{$lg};
+    }
+
+}
+
+// Headings
+// =========================
+//
+// Quickly change the properties
+// for all the headings.
+
+@mixin headings() {
+  h1, h2, h3, h4, h5, h5 {
+    @content;
+  }
+}

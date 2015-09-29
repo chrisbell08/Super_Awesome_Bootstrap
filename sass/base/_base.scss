@@ -1,0 +1,41 @@
+/*************************************************************************
+**
+** base.scss
+**
+** Any global variables used in the site in addition to the Front-End
+** framework variables.
+**
+**************************************************************************/
+
+
+body {
+}
+
+img {
+
+  /* Dependencies */
+  @extend .img-responsive;
+}
+
+* {
+
+  /* Misc */
+  transition: all 0.3s ease-in;
+}
+
+p:last-of-type {
+
+  /* Box Model */
+  margin-bottom: 0px;
+}
+
+ul {
+
+  /* Box Model */
+  margin-top: 0;
+  margin-left: 0;
+  padding-left: 0;
+
+  /* Misc */
+  list-style: none;
+}

@@ -1,0 +1,45 @@
+// ==========================================================================
+// Third-Party Styles
+// ==========================================================================
+
+// Convert vendor styles to SCSS (basically just change the extension
+// to ".scss" and add "_" to the beginning) and import them here.
+
+
+// ==========================================================================
+// Bootstrap
+//
+// Front-End Framework. A separate overrides file is used to fix any errors
+// in the bootstrap core. The files within the core should never be edited as
+// changes will be lost when the framework is updated.
+//
+// http://getbootstrap.com/
+// ==========================================================================
+@import 'lib/bootstrap 3.3.5/index';
+
+
+// ==========================================================================
+// Animate CSS
+//
+// CSS Animation Libary
+//
+// http://daneden.github.io/animate.css/
+// ==========================================================================
+//@import 'lib/animate/index';
+
+// ==========================================================================
+// Owl Carousel
+//
+// Customizable Carousel
+//
+// http://owlgraphic.com/owlcarousel/
+// ==========================================================================
+//@import 'lib/owl-carousel/index';
+
+// ==========================================================================
+// jQuery UI
+//
+//
+// http://jqueryui.com/
+// ==========================================================================
+//@import 'lib/jquery-ui/index';

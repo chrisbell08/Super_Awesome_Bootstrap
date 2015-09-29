@@ -1,0 +1,76 @@
+/**
+* Make the margin top and
+* bottom of headings the
+* same.
+**/
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+
+  /* Box Model */
+  margin-top: ($line-height-computed / 2);
+}
+
+
+/**
+* Make the navbar
+* dropdown open
+* on hover.
+**/
+
+@media (min-width: $grid-float-breakpoint) {
+
+  /* Nesting */
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+
+    /* Box Model */
+    display: block;
+  }
+}
+
+
+/**
+* Add a small amount of
+* padding to the container
+* on mobile devices.
+**/
+
+.container {
+
+  /* Media Queries */
+  @media (max-width: $screen-xs) {
+
+    /* Box Model */
+    padding-left: 5px !important;
+    padding-right: 5px  !important;
+  }
+}
+/* Remove padding if container is nested in container-fluid */
+.container-fluid > .container {
+
+    /* Media Queries */
+    @media (max-width: $screen-xs) {
+
+      /* Box Model */
+      padding-left: 0 !important;
+      padding-right: 0  !important;
+  }
+}
+
+/**
+* Set Site Min &  Widths
+**/
+
+.container {
+
+  /* Box Model */
+  min-width: $site-min-width;
+}
+.container-fluid {
+
+  /* Box Model */
+  min-width: $site-min-width;
+  max-width: $site-max-width !important;
+}
+
