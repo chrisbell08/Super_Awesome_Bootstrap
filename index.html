@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Super Awesome Bootstrap by chrisbell08</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Super Awesome Bootstrap</h1>
+        <h2>Bootstrap on Steroids!!!</h2>
+        <a href="https://github.com/chrisbell08/Super_Awesome_Bootstrap" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="super-awesome-bootstrap" class="anchor" href="#super-awesome-bootstrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Super Awesome Bootstrap</h1>
+
+<p>Super Awesome Bootstrap (SA Bootstrap) is a Front End Framework that extends the core functionality of Bootstrap, it's like Bootstrap on steroids! It uses BEM for the naming conventions and changes the core functionality of Bootstrap to Opt-in, preventing bloated CSS. This makes the setting up, developing and managing your projects easier.</p>
+
+<p>This project is still in its infancy and so are the docs. Please feel free to highlight any mistakes in the code or the docs so the project can be improved.</p>
+
+<h3>
+<a id="single-class-rule" class="anchor" href="#single-class-rule" aria-hidden="true"><span class="octicon octicon-link"></span></a>Single Class Rule</h3>
+
+<p>When using Bootstrap the modular class system can leave your HTML littered with classes. To prevent this SA Bootstrap utilizes a single class rule. The idea behind the rule is that no HTML element may contain more than one class. This can be extremely powerful when combined with the SASS <a href="https://github.com/extend" class="user-mention">@extend</a> rule for importing classes or placeholders, and SASS Variables.</p>
+
+<h4>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h4>
+
+<p>HTML</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>page-heading<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">h1</span>&gt;This is a title&lt;/<span class="pl-ent">h1</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>SASS</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-e">.page-heading</span> {
+    <span class="pl-k">@extend</span> <span class="pl-e">.page-header</span>;
+    <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$brand-primary</span>;
+}</pre></div>
+
+<h3>
+<a id="bem" class="anchor" href="#bem" aria-hidden="true"><span class="octicon octicon-link"></span></a>BEM</h3>
+
+<p>The Block Element Modifier (BEM) naming convention can be used to break down the elements of our web pages into reusable components. Best practice is to use one scss partial file for each Block, these should be saved in the components folder. This means that the class ".blog__heading" would be in the "_blog.scss" partial, this makes your code much easier to read for other developers and helps keep the code maintainable over time.</p>
+
+<p>The default layout for BEM elements is block__element--modifier. SA Bootstrap has builtin mixins to generate the classes automatically. The definition of what is a Block, Element or Modifier is talked about in detail on the BEM website: <a href="https://bem.info/">https://bem.info/</a> but can be implemented however works best for you. The most important thing is that you're consistent in your interpretation.</p>
+
+<h4>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-e">.my-block</span> {
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">my-element</span>) {
+        <span class="pl-k">@include</span> <span class="pl-c1">modifier</span>(<span class="pl-v">my-modifier</span>) {
+
+        }
+    }
+}</pre></div>
+
+<h4>
+<a id="usage-1" class="anchor" href="#usage-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h4>
+
+<p>HTML my-modal.php</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>my-modal fade<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>my-modal__dialog<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>my-modal__content<span class="pl-pds">"</span></span>&gt;
+      &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>my-modal__header<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">button</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>button<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>close<span class="pl-pds">"</span></span> <span class="pl-e">data-dismiss</span>=<span class="pl-s"><span class="pl-pds">"</span>modal<span class="pl-pds">"</span></span> <span class="pl-e">aria-label</span>=<span class="pl-s"><span class="pl-pds">"</span>Close<span class="pl-pds">"</span></span>&gt;&lt;<span class="pl-ent">span</span> <span class="pl-e">aria-hidden</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;<span class="pl-c1">&amp;times;</span>&lt;/<span class="pl-ent">span</span>&gt;&lt;/<span class="pl-ent">button</span>&gt;
+        &lt;<span class="pl-ent">h4</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>my-modal__title--primary<span class="pl-pds">"</span></span>&gt;Modal title&lt;/<span class="pl-ent">h4</span>&gt;
+      &lt;/<span class="pl-ent">div</span>&gt;
+      &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>my-modal__body--dark<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">p</span>&gt;One fine body<span class="pl-c1">&amp;hellip;</span>&lt;/<span class="pl-ent">p</span>&gt;
+      &lt;/<span class="pl-ent">div</span>&gt;
+    &lt;/<span class="pl-ent">div</span>&gt;<span class="pl-c">&lt;!-- /.modal-content --&gt;</span>
+  &lt;/<span class="pl-ent">div</span>&gt;<span class="pl-c">&lt;!-- /.modal-dialog --&gt;</span>
+&lt;/<span class="pl-ent">div</span>&gt;<span class="pl-c">&lt;!-- /.modal --&gt;</span></pre></div>
+
+<p>SASS _my-modal.scss</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-e">.my-modal</span> {
+    <span class="pl-k">@extend</span> <span class="pl-e">.modal</span>;
+
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">dialog</span>) {
+        <span class="pl-k">@extend</span> <span class="pl-e">.modal-dialog</span>;
+    }
+
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">content</span>) {
+        <span class="pl-k">@extend</span> <span class="pl-e">.modal-content</span>;
+    }
+
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">header</span>) {
+        <span class="pl-k">@extend</span> <span class="pl-e">.modal-header</span>;
+    }
+
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">title</span>) {
+        <span class="pl-k">@extend</span> <span class="pl-e">.modal-title</span>;
+
+        <span class="pl-k">@include</span> <span class="pl-c1">modifier</span>(<span class="pl-v">primary</span>) {
+            <span class="pl-k">@extend</span> <span class="pl-e">.my-modal__title</span>;
+            <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-smi">$brand-warning</span>;
+        }
+    }
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">body</span>) {
+        <span class="pl-k">@extend</span> <span class="pl-e">.modal-body</span>;
+
+        <span class="pl-k">@include</span> <span class="pl-c1">modifier</span>(<span class="pl-v">dark</span>) {
+            <span class="pl-k">@extend</span> <span class="pl-e">.my-modal__body</span>;
+
+            <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-smi">$gray-darker</span>;
+            <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">white</span>;
+        }
+    }
+}</pre></div>
+
+<h3>
+<a id="directory-structure" class="anchor" href="#directory-structure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directory Structure</h3>
+
+<h4>
+<a id="root" class="anchor" href="#root" aria-hidden="true"><span class="octicon octicon-link"></span></a>Root</h4>
+
+<h5>
+<a id="stylescss" class="anchor" href="#stylescss" aria-hidden="true"><span class="octicon octicon-link"></span></a>style.scss</h5>
+
+<p>Main import file, generates the .css file.</p>
+
+<h5>
+<a id="componentsscss" class="anchor" href="#componentsscss" aria-hidden="true"><span class="octicon octicon-link"></span></a>components.scss</h5>
+
+<p>Each new componenet should be added here as an import line. You can set up your sass globbling to point to this file and automatically populate the file with the component names. If your using ruby sass you can use the global import command.</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-k">@import</span> '<span class="pl-v">components/*</span>';</pre></div>
+
+<h5>
+<a id="shamescss" class="anchor" href="#shamescss" aria-hidden="true"><span class="octicon octicon-link"></span></a>shame.scss</h5>
+
+<p>Used just like a shame.css file.</p>
+
+<h5>
+<a id="wordpressscss" class="anchor" href="#wordpressscss" aria-hidden="true"><span class="octicon octicon-link"></span></a>wordpress.scss</h5>
+
+<p>This file contains the Wordpress Header for naming your theme and also the core wordpres styles. This isn't imported by default, if your using wordpress you can uncomment the import for this in the style.scss file.</p>
+
+<h4>
+<a id="base" class="anchor" href="#base" aria-hidden="true"><span class="octicon octicon-link"></span></a>Base</h4>
+
+<p>The base styling the project is built on. This folder contains the styling for the base HTML elements, the css reset, the colours used in the project and a copy of the Bootstrap variables that we can customize. It's also used to define any custom variables for use in the project.</p>
+
+<h4>
+<a id="components" class="anchor" href="#components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Components</h4>
+
+<p>Components are the block elements in our BEM css styling. All Components code and styling should be built in a way that is independant of other modules. The idea is to build not only maintainable code but reuseable code across projects using variables when possible.</p>
+
+<h4>
+<a id="utilities" class="anchor" href="#utilities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Utilities</h4>
+
+<p>The Utilities folder contains our 3rd party CSS imports such as bootstrap and all other helpers and functions.</p>
+
+<h5>
+<a id="lib" class="anchor" href="#lib" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lib</h5>
+
+<p>Third party Libs go in this Folder, including Bootstrap. Within the Bootstrap folder is a bootstrap overrides partial to override any of the default bootstrap behaviour you don't want. Super Awesome Bootstrap ships with the latest version of Bootstrap, animate.css, jQuery UI &amp; Owl Carousel.</p>
+
+<h5>
+<a id="helpersscss" class="anchor" href="#helpersscss" aria-hidden="true"><span class="octicon octicon-link"></span></a>helpers.scss</h5>
+
+<p>Used to store global CSS classes. See the helpers section for more info.</p>
+
+<h5>
+<a id="libscss" class="anchor" href="#libscss" aria-hidden="true"><span class="octicon octicon-link"></span></a>lib.scss</h5>
+
+<p>Loads in all 3rd party libs. By defualt only Bootstrap is imported. If you want to use and of the other libs you need to uncomment them here.</p>
+
+<h4>
+<a id="mixinsscss" class="anchor" href="#mixinsscss" aria-hidden="true"><span class="octicon octicon-link"></span></a>mixins.scss</h4>
+
+<p>For our mixins. SA Bootstrap ships with some handy mixins, more info can be found in the mixins sections.</p>
+
+<h3>
+<a id="opt-in-components" class="anchor" href="#opt-in-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Opt In Components</h3>
+
+<p>To keep our css file as small as possible the main bootstrap import has been changed to 'opt in', meaning all components are not imported by default. Instead you need to uncomment the components you wish to import from the utilities &gt; lib &gt; bootstrap (version) &gt; bootstrap.scss file. By default it will look like this:</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-c">// Core variables and mixins</span>
+<span class="pl-k">@import</span> "<span class="pl-v">bootstrap/mixins</span>";
+
+<span class="pl-c">// Reset and dependencies</span>
+<span class="pl-c">// @import "bootstrap/normalize";</span>
+<span class="pl-c">// @import "bootstrap/print";</span>
+<span class="pl-c">// @import "bootstrap/glyphicons";</span>
+
+<span class="pl-c">// Core CSS</span>
+<span class="pl-k">@import</span> "<span class="pl-v">bootstrap/scaffolding</span>";
+<span class="pl-k">@import</span> "<span class="pl-v">bootstrap/type</span>";
+<span class="pl-k">@import</span> "<span class="pl-v">bootstrap/code</span>";
+<span class="pl-k">@import</span> "<span class="pl-v">bootstrap/grid</span>";
+<span class="pl-k">@import</span> "<span class="pl-v">bootstrap/tables</span>";
+<span class="pl-k">@import</span> "<span class="pl-v">bootstrap/forms</span>";
+<span class="pl-k">@import</span> "<span class="pl-v">bootstrap/buttons</span>";
+
+<span class="pl-c">// Components</span>
+<span class="pl-c">// @import "bootstrap/component-animations";</span>
+<span class="pl-c">// @import "bootstrap/dropdowns";</span>
+<span class="pl-c">// @import "bootstrap/button-groups";</span>
+<span class="pl-c">// @import "bootstrap/input-groups";</span>
+<span class="pl-c">// @import "bootstrap/navs";</span>
+<span class="pl-c">// @import "bootstrap/navbar";</span>
+<span class="pl-c">// @import "bootstrap/breadcrumbs";</span>
+<span class="pl-c">// @import "bootstrap/pagination";</span>
+<span class="pl-c">// @import "bootstrap/pager";</span>
+<span class="pl-c">// @import "bootstrap/labels";</span>
+<span class="pl-c">// @import "bootstrap/badges";</span>
+<span class="pl-c">// @import "bootstrap/jumbotron";</span>
+<span class="pl-c">// @import "bootstrap/thumbnails";</span>
+<span class="pl-c">// @import "bootstrap/alerts";</span>
+<span class="pl-c">// @import "bootstrap/progress-bars";</span>
+<span class="pl-c">// @import "bootstrap/media";</span>
+<span class="pl-c">// @import "bootstrap/list-group";</span>
+<span class="pl-c">// @import "bootstrap/panels";</span>
+<span class="pl-c">// @import "bootstrap/responsive-embed";</span>
+<span class="pl-c">// @import "bootstrap/wells";</span>
+<span class="pl-c">// @import "bootstrap/close";</span>
+
+<span class="pl-c">// Components w/ JavaScript</span>
+<span class="pl-c">// @import "bootstrap/modals";</span>
+<span class="pl-c">// @import "bootstrap/tooltip";</span>
+<span class="pl-c">// @import "bootstrap/popovers";</span>
+<span class="pl-c">// @import "bootstrap/carousel";</span>
+
+<span class="pl-c">// Utility classes</span>
+<span class="pl-c">//@import "bootstrap/utilities";</span>
+<span class="pl-c">//@import "bootstrap/responsive-utilities";</span></pre></div>
+
+<p>You can go into the file an uncomment each component as you want to use it.</p>
+
+<h3>
+<a id="declaration-order" class="anchor" href="#declaration-order" aria-hidden="true"><span class="octicon octicon-link"></span></a>Declaration Order</h3>
+
+<p>It's stated in the Code Guide created by Mark Otto (The creator of Bootstrap) that css / sass should have a consistant declarative order. The order stated in the code guide only really covers basic CSS so I've extened that to the declarative order shown below. The full code guide can be found here: <a href="http://mdo.github.io/code-guide/">http://mdo.github.io/code-guide/</a>.</p>
+
+<h4>
+<a id="dependancies" class="anchor" href="#dependancies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependancies</h4>
+
+<p>Any usage of the <a href="https://github.com/extend" class="user-mention">@extend</a> SASS directive is classed as a dependancy. This is a global programming concept, a class that extends another class is by definition dependant on that class. Mixins however should NOT be treated as dependancies. they should be placed in the section relative to the output.</p>
+
+<h4>
+<a id="positioning" class="anchor" href="#positioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Positioning</h4>
+
+<p>Positioning comes next because it can remove an element from the normal flow of the document and override box model related styles.</p>
+
+<h4>
+<a id="box-model" class="anchor" href="#box-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Box Model</h4>
+
+<p>The box model comes next as it dictates a component's dimensions and placement.</p>
+
+<h4>
+<a id="typograpy" class="anchor" href="#typograpy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Typograpy</h4>
+
+<p>Anything relating to the style and presentation of the text on the page.</p>
+
+<h4>
+<a id="visual" class="anchor" href="#visual" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visual</h4>
+
+<p>Rules that control the visual style of the element NOT the typography.</p>
+
+<h4>
+<a id="misc" class="anchor" href="#misc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Misc</h4>
+
+<p>Any other classes such as tranistions, transforms, opacity etc are placed here.</p>
+
+<h4>
+<a id="pseudo-classes" class="anchor" href="#pseudo-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pseudo Classes</h4>
+
+<p>Pretty self explanitory, Puesdo classes are things like :last-of-type, :nth-child(1) and :after.</p>
+
+<h4>
+<a id="states" class="anchor" href="#states" aria-hidden="true"><span class="octicon octicon-link"></span></a>States</h4>
+
+<p>This is the "State" of the element, this can be :hover, :active, :visited or :focus.</p>
+
+<h4>
+<a id="media-queries" class="anchor" href="#media-queries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Media Queries</h4>
+
+<p>After all the styles have been declared we then declare our responsive stuff.</p>
+
+<h4>
+<a id="nested-elements" class="anchor" href="#nested-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Nested Elements</h4>
+
+<p>Finally we need nest all the child elements.</p>
+
+<h4>
+<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-e">.declaration-order</span> {
+<span class="pl-c">  /* Dependencies */</span>
+  <span class="pl-k">@extend</span> <span class="pl-e">.xyz</span>;
+
+<span class="pl-c">  /* Positioning */</span>
+  <span class="pl-c1"><span class="pl-c1">position</span></span>: <span class="pl-c1">absolute</span>;
+  <span class="pl-c1"><span class="pl-c1">top</span></span>: <span class="pl-c1">0</span>;
+  <span class="pl-c1"><span class="pl-c1">right</span></span>: <span class="pl-c1">0</span>;
+  <span class="pl-c1"><span class="pl-c1">bottom</span></span>: <span class="pl-c1">0</span>;
+  <span class="pl-c1"><span class="pl-c1">left</span></span>: <span class="pl-c1">0</span>;
+  <span class="pl-c1"><span class="pl-c1">z-index</span></span>: <span class="pl-c1">100</span>;
+
+<span class="pl-c">  /* Box-model */</span>
+  <span class="pl-c1"><span class="pl-c1">display</span></span>: <span class="pl-c1">block</span>;
+  <span class="pl-c1"><span class="pl-c1">float</span></span>: <span class="pl-c1">right</span>;
+  <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">100</span><span class="pl-k">px</span>;
+  <span class="pl-c1"><span class="pl-c1">height</span></span>: <span class="pl-c1">100</span><span class="pl-k">px</span>;
+  <span class="pl-k">@include</span> <span class="pl-c1">spacing</span>(<span class="pl-v">padding</span>, <span class="pl-v">all</span>);
+
+<span class="pl-c">  /* Typography */</span>
+  <span class="pl-c1"><span class="pl-c1">font</span></span>: <span class="pl-c1">normal</span><span class="pl-c1"> 13</span><span class="pl-k">px</span> <span class="pl-s"><span class="pl-pds">"</span>Helvetica Neue<span class="pl-pds">"</span></span>, <span class="pl-c1">sans-serif</span>;
+  <span class="pl-c1"><span class="pl-c1">line-height</span></span>: <span class="pl-c1">1.5</span>;
+  <span class="pl-c1"><span class="pl-c1">color</span></span>: <span class="pl-c1">#333</span>;
+  <span class="pl-c1"><span class="pl-c1">text-align</span></span>: <span class="pl-c1">center</span>;
+
+<span class="pl-c">  /* Visual */</span>
+  <span class="pl-c1"><span class="pl-c1">background-color</span></span>: <span class="pl-c1">#f5f5f5</span>;
+  <span class="pl-c1"><span class="pl-c1">border</span></span>: <span class="pl-c1">1</span><span class="pl-k">px</span> <span class="pl-c1">solid</span> <span class="pl-c1">#e5e5e5</span>;
+  <span class="pl-c1"><span class="pl-c1">border-radius</span></span>: <span class="pl-c1">3</span><span class="pl-k">px</span>;
+
+<span class="pl-c">  /* Misc */</span>
+  <span class="pl-c1"><span class="pl-c1">opacity</span></span>: <span class="pl-c1">.8</span>;
+
+<span class="pl-c">  /* Pseudo Classes*/</span>
+  <span class="pl-ent">&amp;</span><span class="pl-e">:first-of-type</span> {}
+
+<span class="pl-c">  /* States */</span>
+  <span class="pl-ent">&amp;</span><span class="pl-e">:hover</span> {}
+
+<span class="pl-c">  /* Media Queries */</span>
+  <span class="pl-k">@include</span> <span class="pl-c1">screen</span>(<span class="pl-v">max</span>,<span class="pl-c1"> 1200</span><span class="pl-k">px</span>) {}
+
+<span class="pl-c">  /* Nesting  */</span>
+  <span class="pl-ent">a</span> {}
+
+<span class="pl-c">  /* Elements */</span>
+  <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">wrapper</span>) {
+
+<span class="pl-c">    /* Dependencies */</span>
+    <span class="pl-k">@extend</span> <span class="pl-e">.container</span>;
+
+<span class="pl-c">    /* Modifiers */</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">fluid</span>) {
+
+<span class="pl-c">       /* Dependencies */</span>
+       <span class="pl-k">@extend</span> <span class="pl-e">.container-fluid</span>;
+    }
+  }
+}</pre></div>
+
+<h3>
+<a id="mixins" class="anchor" href="#mixins" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mixins</h3>
+
+<p>SA Bootstrap ships with some handy mixins to make our life a little easier.</p>
+
+<h4>
+<a id="media-queryies" class="anchor" href="#media-queryies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Media Queryies</h4>
+
+<p>This is an extremely flexable mixin for creating media queries. The $screen variable can use any of the default bootstrap media queries (xs, sm, md, lg). We can also set up custom media queries using the 'min', 'max' or 'range' values. 'min' &amp; 'max' use use $value1 as the min or max value in the media query, 'range' uses $value1 as the min and $value2 as the max in a min &amp; max media query.</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-c">    // To set a media query just for the Bootstrap breakpoint</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">screen</span>(<span class="pl-v">xs</span>) {
+<span class="pl-c">        // Some styles here</span>
+    }
+
+<span class="pl-c">    // Here's how you do it using a min value of 480px</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">screen</span>(<span class="pl-v">min</span>,<span class="pl-c1"> 480</span><span class="pl-k">px</span>) {
+<span class="pl-c">        // Some styles here</span>
+    }
+
+<span class="pl-c">    // a max width value would look like this</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">screen</span>(<span class="pl-v">max</span>,<span class="pl-c1"> 480</span><span class="pl-k">px</span>) {
+<span class="pl-c">        // Some styles here</span>
+    }
+
+<span class="pl-c">    // And if we wanted to use a custom media query range between 480px - 1200px</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">screen</span>(<span class="pl-v">range</span>,<span class="pl-c1"> 480</span><span class="pl-k">px</span>,<span class="pl-c1"> 1200</span><span class="pl-k">px</span> ) {
+<span class="pl-c">        // Some styles here</span>
+    }
+
+<span class="pl-c">    // You can even pass in boostrap variables instead of px</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">screen</span>(<span class="pl-v">min</span>, <span class="pl-smi">$screen-xs</span>) {
+<span class="pl-c">        // Some styles here</span>
+    }</pre></div>
+
+<h4>
+<a id="bem-selectors" class="anchor" href="#bem-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bem Selectors</h4>
+
+<p>This benefits of using this are convered in the BEM section above. Should you want to use BEM methodology this is how.</p>
+
+<div class="highlight highlight-source-scss"><pre>
+<span class="pl-c">// Declare the block first</span>
+<span class="pl-e">.block</span> {
+
+<span class="pl-c">   // Nest the elements inside the block</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">wrapper</span>) {
+<span class="pl-c">        // Some styles here</span>
+
+<span class="pl-c">        // And the modifers inside the elements</span>
+        <span class="pl-k">@include</span> <span class="pl-c1">modifier</span>(<span class="pl-v">first</span>) {
+<span class="pl-c">        // Modifier Styles here</span>
+        }
+    }
+}
+</pre></div>
+
+<h4>
+<a id="global-spacing" class="anchor" href="#global-spacing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Global Spacing</h4>
+
+<p>One thing I have always struggled with in bootstrap is vertical spacing. Yes the horizontal spacing is kept tidy by the grid gutter but vertical spacing is kind of forgotten about. The spacing mixing attempt to address this issue, it uses the $spacing mixin found in the global vars file. By default this is set to 15px (The same as the bootstrap gutter width). The mixin accepts two agruments, type and direction. Type will be either 'padding' or 'margin', Direction can be any of('all', 'vertical', 'sides', 'top', 'left', 'right', 'bottom'). There is a 3rd argument of multiplier that will x by the $spacing variable, this is set to 1 by default.</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-c">    // A basic call would be</span>
+    <span class="pl-k">@mixin</span> <span class="pl-en">spacing</span>(padding, all);
+
+<span class="pl-c">    // To double the padding size we would call with a multiplier</span>
+    <span class="pl-k">@mixin</span> <span class="pl-en">spacing</span>(padding, all,<span class="pl-c1"> 2</span>);</pre></div>
+
+<h4>
+<a id="shorthand-cols" class="anchor" href="#shorthand-cols" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shorthand Cols</h4>
+
+<p>This mixin life much easier when delcaring the bootstrap .col-* grid classes. The first argument is the number of xs columns, it then works up to lg. We only have to declare as many as are needed however, For Example,</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-c">    // What would need to be wrote like this</span>
+    <span class="pl-k">@extend</span> <span class="pl-e">.col-xs-12</span>;
+    <span class="pl-k">@extend</span> <span class="pl-e">.col-sm-6</span>;
+    <span class="pl-k">@extend</span> <span class="pl-e">.col-md-4</span>;
+    <span class="pl-k">@extend</span> <span class="pl-e">.col-lg-2</span>;
+
+<span class="pl-c">    // Could be shortened to this</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">cols</span>(<span class="pl-c1">12, 6, 4</span>,<span class="pl-c1"> 2</span>);
+
+<span class="pl-c">    // But we dont have to pass all 4 args, it could just be</span>
+    <span class="pl-k">@include</span> <span class="pl-c1">cols</span>(<span class="pl-c1">12</span>,<span class="pl-c1"> 6</span>);
+
+<span class="pl-c">    // This would be</span>
+    <span class="pl-k">@extend</span> <span class="pl-e">.col-xs-12</span>;
+    <span class="pl-k">@extend</span> <span class="pl-e">.col-sm-6</span>;
+</pre></div>
+
+<h4>
+<a id="headings" class="anchor" href="#headings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Headings</h4>
+
+<p>Pretty simple, sets styles on all headings h1 - h6.</p>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-k">@include</span> <span class="pl-c1">headings</span>()<span class="pl-ii">{</span>
+<span class="pl-c">    // Some styles here</span>
+}</pre></div>
+
+<h3>
+<a id="variables" class="anchor" href="#variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Variables</h3>
+
+<p>Global variables should be kept in the variables file. Component specific variables should be kept in the appropriate sass file.</p>
+
+<h3>
+<a id="helpers" class="anchor" href="#helpers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Helpers</h3>
+
+<p>Helper styles (Global classes not already in Bootstrap) go here.</p>
+
+<h3>
+<a id="buttons" class="anchor" href="#buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buttons</h3>
+
+<p>By default this file converts the standard btn classes of bootstrap into BEM classes.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>    <span class="pl-c">&lt;!-- This button --&gt;</span>
+    &lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn btn-primary<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">button</span>&gt;
+
+    <span class="pl-c">&lt;!-- Can be declared like this --&gt;</span>
+    &lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn__primary<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">button</span>&gt;
+
+    <span class="pl-c">&lt;!-- You can then build modifiers into the buttons like so --&gt;</span>
+    &lt;<span class="pl-ent">button</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>btn__primary--outline<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">button</span>&gt;</pre></div>
+
+<div class="highlight highlight-source-scss"><pre><span class="pl-e">.btn</span> {
+    <span class="pl-k">@include</span> <span class="pl-c1">element</span>(<span class="pl-v">primary</span>) {
+        <span class="pl-k">@include</span> <span class="pl-c1">modifier</span>(<span class="pl-v">outline</span>) {
+            <span class="pl-k">@extend</span> <span class="pl-e">.btn__primary</span>;
+
+<span class="pl-c">            // Some styles here</span>
+        }
+    }
+}</pre></div>
+
+<h3>
+<a id="updating" class="anchor" href="#updating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating</h3>
+
+<p>We use the standard version control numbering system. The version number can be found in the style.css file and will look like this (x.y.z). Z is a point release and just contains minor changes, Y is a major but none breaking change meaning you can update your project will no trouble, X is a breaking change meaning it is not compatable with older verisons.</p>
+
+<h4>
+<a id="updating-bootstrap" class="anchor" href="#updating-bootstrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Updating Bootstrap</h4>
+
+<p>If you would like to update bootstrap manually in your project this is fairly simple.
+-1 Create a new folder with the new version number (This allows us to rollback if we have any issues)
+-2 Copy the bootstrap folder from your bootstrap download into the the folder you just created.
+-3 Copy the _boootstrap.scss, _index.scss &amp; _overrides.scss files from the old bootstrap folder to the new one.
+-4 Change the bootstrap version in the _lib.scss file.
+-5 Compile....</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/chrisbell08/Super_Awesome_Bootstrap/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/chrisbell08/Super_Awesome_Bootstrap/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/chrisbell08/Super_Awesome_Bootstrap"></a> is maintained by <a href="https://github.com/chrisbell08">chrisbell08</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
