@@ -90,38 +90,38 @@
 * The multiplier is optional and defaults to 1.
 */
 
-@mixin spacing($position, $direction, $multiplier: 1) {
+@mixin spacing($type, $direction, $multiplier: 1) {
 
-  @if ($position == "margin") or ($position == "padding") {
+  @if ($type == "margin") or ($type == "padding") {
 
     @if $direction == "all" {
-      #{$position}: ( $spacing * $multiplier );
+      #{$type}: ( $spacing * $multiplier );
     }
 
     @elseif $direction == "vertical" {
-      #{$position}-top: ( $spacing * $multiplier );
-      #{$position}-bottom: ( $spacing * $multiplier );
+      #{$type}-top: ( $spacing * $multiplier );
+      #{$type}-bottom: ( $spacing * $multiplier );
     }
 
     @elseif $direction == "sides" {
-      #{$position}-left:  ( $spacing * $multiplier );
-      #{$position}-right:  ( $spacing * $multiplier );
+      #{$type}-left:  ( $spacing * $multiplier );
+      #{$type}-right:  ( $spacing * $multiplier );
     }
 
     @elseif $direction == "left" {
-      #{$position}-left:  ( $spacing * $multiplier );
+      #{$type}-left:  ( $spacing * $multiplier );
     }
 
     @elseif $direction == "right" {
-      #{$position}-right:  ( $spacing * $multiplier );
+      #{$type}-right:  ( $spacing * $multiplier );
     }
 
     @elseif $direction == "top" {
-      #{$position}-top:  ( $spacing * $multiplier );
+      #{$type}-top:  ( $spacing * $multiplier );
     }
 
     @elseif $direction == "bottom" {
-      #{$position}-bottom:  ( $spacing * $multiplier );
+      #{$type}-bottom:  ( $spacing * $multiplier );
     }
 
     @else {

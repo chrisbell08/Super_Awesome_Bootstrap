@@ -17,10 +17,10 @@ img {
   @extend .img-responsive;
 }
 
-* {
+a {
 
   /* Misc */
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 p:last-of-type {
@@ -35,7 +35,4 @@ ul {
   margin-top: 0;
   margin-left: 0;
   padding-left: 0;
-
-  /* Misc */
-  list-style: none;
 }
