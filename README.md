@@ -412,8 +412,8 @@ We use the standard version control numbering system. The version number can be 
 
 #### Updating Bootstrap
 If you would like to update bootstrap manually in your project this is fairly simple.
-1. Create a new folder with the new version number (This allows us to rollback if we have any issues)
-2. Copy the bootstrap folder from your bootstrap download into the the folder you just created.
-3. Copy the _boootstrap.scss, _index.scss & _overrides.scss files from the old bootstrap folder to the new one.
-4. Change the bootstrap version in the _lib.scss file.
-5. Compile....
+- 1. Create a new folder with the new version number (This allows us to rollback if we have any issues)
+- 2. Copy the bootstrap folder from your bootstrap download into the the folder you just created.
+- 3. Copy the _boootstrap.scss, _index.scss & _overrides.scss files from the old bootstrap folder to the new one.
+- 4. Change the bootstrap version in the _lib.scss file.
+- 5. Compile....
